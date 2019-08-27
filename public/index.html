@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Management System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="js/controller.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="formCtrl" ng-init="allUsers()">
+    <div class="container">
+        <h2>Welcome To Student Management System ! </h2>
+        <h3>Student Details : </h3>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Roll Number</th>
+                    <th>Name</th>
+                     <th>Age</th>
+                    <th>Address</th>
+                    <th>Date Of Birth</th>
+                   
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.age}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.dob}}</td>
+                    <td>
+                        <button ng-click="editUser(user.id)" class="btn btn-success">Edit</button>
+                        <button ng-click="deleteUser(user.id); redirect()" class="btn btn-danger">Delete</button>
+                       
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <body ng-app="myApp" ng-controller="formCtrl">
+    <div class="container">
+        <br/><br/><br/>
+        <h3 ><highlight>Add New Student Details :</highlight></h3>
+      <br/> 
+        <form ng-submit="user(info)">
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" ng-model="info.name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="age">Age :</label>
+                <input type="number" ng-model="info.age" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" ng-model="info.address" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="dob">Date Of Birth :</label>
+                <input type="text" ng-model="info.dob"  class="form-control">
+            </div>
+            
+            <button type="submit" ng-click="redirect()" class="btn btn-primary btn-md">Add Student</button>
+        </form>
+   <br/>
+    </div>     
+</body>
+</html>
+</body>
+</html>
